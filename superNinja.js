@@ -1,7 +1,7 @@
 class Ninja{
-    constructor(name, health){
+    constructor(name, health=10){
         this.name = name;
-        this.health = 100; 
+        this.health = health; 
         this.speed = 3; 
         this.strength= 3;
     }
@@ -21,7 +21,27 @@ class Ninja{
 
 }
 
-const ninja1 = new Ninja("Hyabusa");
-ninja1.drinkSake();
-ninja1.sayName();
-ninja1.showStats();
+// const ninja1 = new Ninja("Hyabusa");
+// ninja1.drinkSake();
+// ninja1.sayName();
+// ninja1.showStats();
+
+
+class Sensei extends Ninja{
+    constructor(name){
+        super(name, 200, 10, 10);
+        this.wisdom = 10; 
+    }
+
+    speakWisdom(){
+        this.drinkSake();
+        console.log("Fortune favors the bold")
+    }
+}
+
+// example output
+const superSensei = new Sensei("Master Splinter");
+superSensei.speakWisdom();
+// -> "What one programmer can do in one month, two programmers can do in two months."
+superSensei.showStats();
+// -> "Name: Master Splinter, Health: 210, Speed: 10, Strength: 10"
